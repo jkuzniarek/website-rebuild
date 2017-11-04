@@ -2,11 +2,11 @@
 <html>
 <head>
 <title>[ Page Under Construction ]</title>
-<link rel=stylesheet href=style.css>
+{{ resources[style] }}
 </head>
 <body>
-  <iframe src="nav.html" sandbox="allow-top-navigation allow-same-origin"></iframe>
-    <p><br><img src="images/banner.png"><br><br></p><br><br>
+  {{ resources[navbar] }}
+    <p><br><img src="{{ url_for("static", filename="banner.png")"><br><br></p><br><br>
 <!------------------------------------------------------>
 <!--|EVERYTHING ABOVE THIS LINE MUST BE ON EVERY PAGE|-->
 
@@ -18,6 +18,6 @@
 
 <!--|DO NOT DELETE ANYTHING BELOW THIS LINE|------------>
 <!------------------------------------------------------>
-<iframe src="nav.html" sandbox="allow-top-navigation allow-same-origin"></iframe>
+{{ resources[navbar] }}
 </body>
 </html>
