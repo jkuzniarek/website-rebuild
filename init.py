@@ -34,4 +34,4 @@ def post(postid):
 import pagelib
 
 if __name__ == '__main__':
-    app.run(debug=True) #set False for production
+    app.run(debug=False) #set False for production
