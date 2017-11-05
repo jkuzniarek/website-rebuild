@@ -5,5 +5,6 @@ The primary desired externality of this endeavor is to give myself knowledge and
 
 To initialize the site:
 1. 'cd' to the project directory
-2. 'Python init_site.py'
+2. 'source bin/activate'
+2. 'python init.py'
 3. visit localhost:5000 in your browser to confirm

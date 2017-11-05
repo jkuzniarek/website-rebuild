@@ -1,252 +1,265 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>[ Curriculum ]</title>
-<link rel=stylesheet href=style.css>
+<title>[ About ]</title>
+<link rel=stylesheet href="{{ url_for("static", filename="style.css") }}">
 </head>
 <body>
-  <iframe src="nav.html" sandbox="allow-top-navigation allow-same-origin"></iframe>
-    <p><br><img src="images/banner.png"><br><br></p><br><br>
+  <div id=container>
+  <nav>
+    <ul>
+      {% for url in navbar %}
+      <li><a href="{{ url }}"><span class="green">[</span> {{ navbar[url] }} <span
+         class="green">]</span></a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+    <div class=shadow><br><img src="{{ url_for("static", filename="banner.png") }}"><br><br></div>
+    <div class=shadow>
 <!------------------------------------------------------>
 <!--|EVERYTHING ABOVE THIS LINE MUST BE ON EVERY PAGE|-->
 
-<p><h1><font color=008000 size=10>[</font>
-  Curriculum
-  <font color=008000 size=10>]</font></h1>
-<blockquote><h3><font color=008000 size=6>[</font>
-GPA
-<font color=008000 size=6>]</font></h3>
-Overall: 3.0 |
-Major: 3.0<br>
-<h3><font color=008000 size=6>[</font>
-ENC 3249 - Communications for IT Professionals
-<font color=008000 size=6>]</font> Spring 2016</h3>
-This course focuses on the writing requirements of IT
+<h1 class=green>Curriculum</h1>
+<h3 class=green>GPA</h3>
+Overall: 3.0 | Major: 3.0
+<h3 class=green>ENC 3249 - Communications for IT Professionals</h3>
+<p>
+  This course focuses on the writing requirements of IT
 professionals, with emphasis on the content, organization, format, and style
 of specific types of information technology documents. This course also
 provides students with the opportunity to develop presentation skills while
 improving communication and critical thinking skills. We will emphasize
 real-world applications of course material, with the philosophy that skills
 developed in this class will contribute to not only to our eventual
-professional accomplishment but to success in other academic areas as well.<br>
-<h3><font color=008000 size=6>[</font>
-LIS 4930 - Introduction to R Programming
-<font color=008000 size=6>]</font> Spring 2016</h3>
+professional accomplishment but to success in other academic areas as well.
+</p>
+ <h3 class=green>LIS 4930 - Introduction to R Programming</h3>
+ <p>
 The aims of this course are to teach the participant how to develop workflows,
 going from raw data to graphics, and statistical analysis; all using the R
 programming language and its statistical and visualization environment. Over
 the course of the semester, students will learn the skills to write scripts for
-data analysis, and compile their own R packages.<br>
-<h3><font color=008000 size=6>[</font>
-ISM 4382 - Global Information Systems
-<font color=008000 size=6>]</font> Spring 2016</h3>
+data analysis, and compile their own R packages.
+</p>
+ <h3 class=green>ISM 4382 - Global Information Systems</h3>
+ <p>
 This elective course focuses on the role of information technology in global
 business organizations and the challenges in building information systems to
-enable global operations.<br>
-<h3><font color=008000 size=6>[</font>
-IDS 4934 - Capstone
-<font color=008000 size=6>]</font> Spring 2016</h3>
+enable global operations.
+</p>
+ <h3 class=green>IDS 4934 - Capstone</h3>
+ <p>
 This course affords students the opportunity to synthesize knowledge they have
 gained throughout their previous undergraduate coursework and identify how
-their integrated program of study provides real-world applicability and utility.<br>
-<h3><font color=008000 size=6>[</font>
-ISM 3011 - Info Systems in Organizations
-<font color=008000 size=6>]</font> Fall 2015</h3>
+their integrated program of study provides real-world applicability and utility.
+</p>
+<h3 class=green>ISM 3011 - Info Systems in Organizations</h3>
+<p>
 Course material focuses on two content areas.  The first is a survey of the
 language, concepts, structures and processes involved in the management of
 information systems including the fundamentals of computer-based technology.
 The second area explores the use of business-based software for the support of
-managerial decisions.<br>
-<h3><font color=008000 size=6>[</font>
-LIS 4204 - Information Behavior
-<font color=008000 size=6>]</font> Fall 2015</h3>
+managerial decisions.
+</p>
+ <h3 class=green>LIS 4204 - Information Behavior</h3>
+ <p>
 Theories and issues surrounding various information behaviors, such as
 information needs, seeking, and use, and how understanding these information
-the practice of information professionals and design of information systems.<br>
-<h3><font color=008000 size=6>[</font>
-LIS 4930 - Project Management
-<font color=008000 size=6>]</font> Fall 2015</h3>
+the practice of information professionals and design of information systems.
+</p>
+ <h3 class=green>LIS 4930 - Project Management</h3>
+ <p>
 Examines how organizations implement projects, the fundamentals of basic
 project management, and the system development life cycle.  Topics include
 project planning, cost estimation, project quality management, risk management,
-project control, and project close out.<br>
-<h3><font color=008000 size=6>[</font>
-LIS 4930 - Health Information Security
-<font color=008000 size=6>]</font> Fall 2015</h3>
+project control, and project close out.
+</p>
+ <h3 class=green>LIS 4930 - Health Information Security</h3>
+ <p>
 Overview of information security focusing on protecting private health
 information and protected personal information. Examines both soft (e.g.,
 internal, social engineering) and technology threats to health information
 security. Define methods for lessening the success of information security
-threats.<br>
-<h3><font color=008000 size=6>[</font>
-LIS 4482 - Networks and Communication
-<font color=008000 size=6>]</font> Spring 2015</h3>
+threats.
+</p>
+ <h3 class=green>LIS 4482 - Networks and Communication</h3>
+ <p>
 This course is designed to provide a solid foundation in data communication and
 networking. Topics addressed include local area networks (LANs), wide area
 networks, (WANs), the protocols that are used to implement networks, and
-management issues that face IT network professionals.<br>
-<h3><font color=008000 size=6>[</font>
-LIS 2937 - Database Concepts
-<font color=008000 size=6>]</font> Spring 2015</h3>
+management issues that face IT network professionals.
+</p>
+ <h3 class=green>LIS 2937 - Database Concepts</h3>
+ <p>
 Examines how organizations use technology to manage data as an
 organizational resource.  Learn to analyze an organization’s
 purpose and develop an information system that will meet the data needs of the
 organization.  Topics include methods for accessing data requirements,
 developing a conceptual data design, translating that design into an
 operational information system, and administering and managing organizational
-data.<br>
-<h3><font color=008000 size=6>[</font>
-LIS 3352 - Interaction Design
-<font color=008000 size=6>]</font> Spring 2015</h3>
+data.
+</p>
+ <h3 class=green>LIS 3352 - Interaction Design</h3>
+ <p>
 Covers the process of interaction design with an emphasis on a user-centered
 approach.  Major topics include cognition; user needs assessment, interface
-design, modeling, prototyping, usability testing, and evaluation.<br>
-<h3><font color=008000 size=6>[</font>
-LIS 3353 - Core IT Concepts for Information Professionals
-<font color=008000 size=6>]</font> Fall 2014</h3>
+design, modeling, prototyping, usability testing, and evaluation.
+</p>
+ <h3 class=green>LIS 3353 - Core IT Concepts for Information Professionals</h3>
+ <p>
 Covers the history, development, and current state of computer hardware and
 software.  Also examines programming basics, networks, the internet and web,
-emerging technologies, information industries, and careers.<br>
-<h3><font color=008000 size=6>[</font>
-LIS 3783 - Information Architecture
-<font color=008000 size=6>]</font> Fall 2014</h3>
+emerging technologies, information industries, and careers.
+</p>
+ <h3 class=green>LIS 3783 - Information Architecture</h3>
+ <p>
 Covers the design, organization, implementation, and maintenance of digital
 information spaces for human access, navigation, and use.  Examines the core
 concepts, activities, and dominating technologies in information architecture,
-with a particular emphasis on systems analysis and design.<br>
-<h3><font color=008000 size=6>[</font>
-LIS 4365 - Web Design Technologies
-<font color=008000 size=6>]</font> Fall 2014</h3>
+with a particular emphasis on systems analysis and design.
+</p>
+ <h3 class=green>LIS 4365 - Web Design Technologies</h3>
+ <p>
 Exploration of advanced applications of key Web Technologies, including the
-Document Object Model (DOM) and an introduction to Javascript.<br>
-<h3><font color=008000 size=6>[</font>
-LIS 4930 - Data Structures and Algorithms
-<font color=008000 size=6>]</font> Fall 2014</h3>
+Document Object Model (DOM) and an introduction to Javascript.
+</p>
+ <h3 class=green>LIS 4930 - Data Structures and Algorithms</h3>
+ <p>
 This course is designed to introduce the concepts and application of data
 structures and algorithm analysis. Storage and organization of data via
 standard data structures is explored using arrays, records, linked lists,
 stacks, queues, tables, trees, and graphs. Algorithm design, analysis and
-implementation are explored.<br>
-<h3><font color=008000 size=6>[</font>
-STA 2023 - Introductory Statistics I
-<font color=008000 size=6>]</font> Fall 2014</h3>
+implementation are explored.
+</p>
+ <h3 class=green>STA 2023 - Introductory Statistics I</h3>
+ <p>
 Descriptive and Inferential Statistics; Principles of Probability Theory,
 Discrete and Continuous Probability Distributions: Binomial Probability
 Distribution, Poisson Probability Distribution, Uniform Probability
-Distribution, Normal Distribution and more.<br>
-<h3><font color=008000 size=6>[</font>
-COP 2930 - Programming II - Java
-<font color=008000 size=6>]</font> Spring 2014</h3>
+Distribution, Normal Distribution and more.
+</p>
+ <h3 class=green>COP 2930 - Programming II - Java</h3>
+ <p>
 Apply object-oriented programming principles in a visual environment and
-prepare students for developing applications for the World Wide Web.<br>
-<h3><font color=008000 size=6>[</font>
-LIS 3261 - Intro to Information Science
-<font color=008000 size=6>]</font> Spring 2014</h3>
+prepare students for developing applications for the World Wide Web.
+</p>
+ <h3 class=green>LIS 3261 - Intro to Information Science</h3>
+ <p>
 Foundations of the discipline, history, core theories and methodologies, and
 approaches to information science, with an emphasis on the critical role of
-information technology.<br>
-<h3><font color=008000 size=6>[</font>
-LIS 3361 - World Wide Web Page Design and Management
-<font color=008000 size=6>]</font> Spring 2014</h3>
+information technology.
+</p>
+ <h3 class=green>LIS 3361 - World Wide Web Page Design and Management</h3>
+ <p>
 Overview and practical applications of key Web Technologies.  Covers the use of
 the most current versions of HTML, XHTML, and CSS to design and produce basic
 but effective Web pages. Also examines the use of structure tags, format tags,
-hypertext links, graphics, image maps, tables, forms, and other concepts.<br>
-<h3><font color=008000 size=6>[</font>
-LIS 4414 - Information Policy and Ethics
-<font color=008000 size=6>]</font> Spring 2014</h3>
+hypertext links, graphics, image maps, tables, forms, and other concepts.
+</p>
+ <h3 class=green>LIS 4414 - Information Policy and Ethics</h3>
+ <p>
 Examines issues related to information use in today's society.  Topics include
 governmental regulations and policies, information literacy, digital divide,
-information ethics, and intellectual property issues.<br>
-<h3><font color=008000 size=6>[</font>
-COP 2931 - Programming I - C++
-<font color=008000 size=6>]</font> Fall 2013</h3>
+information ethics, and intellectual property issues.
+</p>
+ <h3 class=green>COP 2931 - Programming I - C++</h3>
+ <p>
 Introduction to procedural and object oriented programming using C++.
 Fundamental aspects of programming including: code style and documentation,
 data types, control structures, functions, arrays, pointers, file input and
 output, classes, objects, templates, overloading, and inheritance are covered.
-<br>
-<h3><font color=008000 size=6>[</font>
-ECO 2013 - Economic Principles (Macroeconomics)
-<font color=008000 size=6>]</font> Fall 2013</h3>
+</p>
+ <h3 class=green>ECO 2013 - Economic Principles (Macroeconomics)</h3>
+ <p>
 Introduces students to basic economic terminology, definitions and measurements
 of macroeconomic data, simple macroeconomic models, fiscal and monetary policy,
-and international macroeconomic linkages.<br>
-<h3><font color=008000 size=6>[</font>
-PHI 1600 - Introduction To Ethics
-<font color=008000 size=6>]</font> Fall 2013</h3>
+and international macroeconomic linkages.
+</p>
+ <h3 class=green>PHI 1600 - Introduction To Ethics</h3>
+ <p>
 In order to promote reflection concerning how we should act and what kinds of
 people we should be, this course introduces students to ethical theories,
-concepts, problems, and methods.<br>
-<h3><font color=008000 size=6>[</font>
-PSY 2012 - Introduction to Psychological Science
-<font color=008000 size=6>]</font> Fall 2013</h3>
+concepts, problems, and methods.
+</p>
+ <h3 class=green>PSY 2012 - Introduction to Psychological Science</h3>
+ <p>
 Introduction to psychology for majors and nonmajors.
 Presents psychological theory and methods in a survey of various areas of
 psychology including clinical, cognitive, developmental, health, industrial,
-social and biopsychology.<br>
-<h3><font color=008000 size=6>[</font>
-SPC 2608 - Public Speaking
-<font color=008000 size=6>]</font> Spring 2013</h3>
+social and biopsychology.
+</p>
+ <h3 class=green>SPC 2608 - Public Speaking</h3>
+ <p>
 The nature and basic principles of human communication; emphasis on improving
 speaking and listening skills common to all forms of oral communication through
-a variety of experiences in public discourse.<br>
-<h3><font color=008000 size=6>[</font>
-INR 2002 - Intro to International Relations
-<font color=008000 size=6>]</font> Spring 2013</h3>
+a variety of experiences in public discourse.
+</p>
+ <h3 class=green>INR 2002 - Intro to International Relations</h3>
+ <p>
 Concepts and analytical tools applied to events such as politics among nations,
-control of foreign policies, types of actors, war and peace.<br>
-<h3><font color=008000 size=6>[</font>
-GEO 2400 - Human Geography
-<font color=008000 size=6>]</font> Spring 2013</h3>
+control of foreign policies, types of actors, war and peace.
+</p>
+ <h3 class=green>GEO 2400 - Human Geography</h3>
+ <p>
 Human geography encompasses those branches in geography which focus primarily
 upon the relationships between humans and the environments they construct.
 This course will examine the object of study of human geography, as well as
 explore many of the components of human geography, including economic
 geography, geopolitics, cultural geography, urban geography, population
-geography, and the relationships between geography and globalization.<br>
-<h3><font color=008000 size=6>[</font>
-ENC 1102 - Composition II
-<font color=008000 size=6>]</font> Spring 2013</h3>
+geography, and the relationships between geography and globalization.
+</p>
+ <h3 class=green>ENC 1102 - Composition II</h3>
+ <p>
 This course emphasizes argument, research, and style. As students engage in
 creative and critical thinking, they learn to support assertions based on
 audience and purpose; students apply library research, strategies for revision,
-and peer response.<br>
-<h3><font color=008000 size=6>[</font>
-BSC 1005 - Biological Principles For Non-Majors
-<font color=008000 size=6>]</font> Fall 2012</h3>
+and peer response.
+</p>
+ <h3 class=green>BSC 1005 - Biological Principles For Non-Majors</h3>
+ <p>
 A comprehensive introduction to living systems, including the scientific basis
 of biology, cell structure and function, genetic mechanisms, human anatomy and
-physiology, and ecological and evolutionary processes.<br>
-<h3><font color=008000 size=6>[</font>
-CGS 2060 - Intro to Computers and Computer Programming
-<font color=008000 size=6>]</font> Fall 2012</h3>
+physiology, and ecological and evolutionary processes.
+</p>
+ <h3 class=green>CGS 2060 - Intro to Computers and Computer Programming</h3>
+ <p>
 Introduction to computer programming using a modern high-level language(Python)
 and the application of computational methods to problem solving. Overview of
-computer systems and their application and role in society.<br>
-<h3><font color=008000 size=6>[</font>
-ENC 1101 - Composition I
-<font color=008000 size=6>]</font> Fall 2012</h3>
+computer systems and their application and role in society.
+</p>
+ <h3 class=green>ENC 1101 - Composition I</h3>
+ <p>
 This course helps prepare students for academic work by emphasizing expository
 writing, the basics of library research, and the conventions of academic
-discourse.<br>
-<h3><font color=008000 size=6>[</font>
-MUC 2301 - Intro to Electronic Music
-<font color=008000 size=6>]</font> Fall 2012</h3>
+discourse.
+</p>
+ <h3 class=green>MUC 2301 - Intro to Electronic Music</h3>
+ <p>
 History and repertory of electronic music; standard sound studio techniques;
 basic electronics as applied in electronic sound synthesis; mathematics for
-music, composition and electronic music.<br>
-<h3><font color=008000 size=6>[</font>
-PHY 2048 - General Physics I (Calculus Based)
-<font color=008000 size=6>]</font> Fall 2012</h3>
+music, composition and electronic music.
+</p>
+ <h3 class=green>PHY 2048 - General Physics I (Calculus Based)</h3>
+ <p>
 First semester of a two-semester sequence of calculus-based General Physics
 which includes a study of mechanics, wave motion, sound, thermodynamics,
 geometrical and physical optics, electricity and magnetism) for students
-majoring in Physics, Chemistry and Engineering.<br>
-</blockquote></p>
+majoring in Physics, Chemistry and Engineering.
+</p>
+
 
 <!--|DO NOT DELETE ANYTHING BELOW THIS LINE|------------>
 <!------------------------------------------------------>
-<iframe src="nav.html" sandbox="allow-top-navigation allow-same-origin"></iframe>
+</div>
+<nav style="position: absolute; bottom: 0; left: 0; right: 0; height: 4em;">
+  <ul>
+    {% for url in navbar %}
+    <li><a href="{{ url }}"><span class="green">[</span> {{ navbar[url] }} <span
+       class="green">]</span></a></li>
+    {% endfor %}
+  </ul>
+</nav>
+<div id=copyright class=shadow> Copyright Julien Kuzniarek 2017 </div>
+</div>
 </body>
 </html>

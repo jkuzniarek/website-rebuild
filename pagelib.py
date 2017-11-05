@@ -24,10 +24,10 @@ def construction():
     return render_template("construction.html", navbar=navbar)
 
 def curriculum():
-    return render_template("construction.html", navbar=navbar)
+    return render_template("curriculum.html", navbar=navbar)
 
 def resume():
-    return render_tamplate("construction.html", navbar=navbar)
+    return render_template("resume.html", navbar=navbar)
 
 def post(name):
     return render_template("construction.html", navbar=navbar, postid=name)
