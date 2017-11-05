@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>[ About ]</title>
+<link rel=stylesheet href="{{ url_for("static", filename="style.css") }}">
+</head>
+<body>
+  <div id=container>
+  <nav>
+    <ul>
+      {% for url in navbar %}
+      <li><a href="{{ url }}"><span class="green">[</span> {{ navbar[url] }} <span
+         class="green">]</span></a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+    <div class=shadow><br><img src="{{ url_for("static", filename="banner.png") }}"><br><br></div>
+<!------------------------------------------------------>
+<!--|EVERYTHING ABOVE THIS LINE MUST BE ON EVERY PAGE|-->
+
+<div class=shadow>
+  <h1 class="green">About</h1>
+<div>
+  <p>
+    In case you've missed the sitewide self promotion I'm calling a
+    banner my name is Julien Kuzniarek. I'm currently an Integration Engineer
+    at <a href="http://www.mynetsvs.com">Net Synergy Virtual Solutions</a> in
+    Tampa, FL where I develop <b>Robot Process Automation</b>
+    and data <b>Extraction, Transformation, and Loading</b> solutions.
+    I typically work with a variety of tools such as Kofax Kapow, Apache NiFi, and
+    SQL databases.
+  </p>
+  <p>
+  I am a graduate of the University of South Florida (go Bulls!) where I earned
+  a <b>Bachelor of Science</b> in Information Studies.
+</p>
+<p>
+  My personal interests include, cellular automata, artificial sentience,
+  social design, urban planning and development, mass transit, and even history.
+  These interests are each tied together and rooted in my love for <b>systems
+  analysis and design</b> combined with my propensity to examine the impact of the
+  perspectives people hold on their actions and decisions.
+</p>
+<p>
+  I built this site to serve as a digital portfolio introducing myself and
+  my work, as well as a platform for documenting my software creations and
+  occasional thought experiments. This site follows the client server model
+  with a significant portion of the content stored in a database. The primary
+  desired externalities of converting my previous static website to this one
+  are to simplify the web development process for myself, to provide myself
+  with knowledge and experience in web development using the <b>Flask</b> framework,
+  and to experiment with and learn how to use <b>MongoDB</b> (via mlab.com).
+</p>
+  <h3 class=green>Contact Me:</h3>
+  My contact information is available on my
+  <a href="{{ url_for('static', filename='resume.pdf') }}">Resume</a>
+
+</div>
+</div>
+
+<!--|DO NOT DELETE ANYTHING BELOW THIS LINE|------------>
+<!------------------------------------------------------>
+<nav style="position: absolute; bottom: 0; left: 0; right: 0; height: 4em;">
+  <ul>
+    {% for url in navbar %}
+    <li><a href="{{ url }}"><span class="green">[</span> {{ navbar[url] }} <span
+       class="green">]</span></a></li>
+    {% endfor %}
+  </ul>
+</nav>
+<div id=copyright class=shadow> Copyright Julien Kuzniarek 2017 </div>
+</div>
+</body>
+</html>

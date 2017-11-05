@@ -1,5 +1,4 @@
 from flask import Flask, redirect, url_for, request
-import pagelib
 
 
 app = Flask(__name__)
@@ -28,9 +27,11 @@ def curriculum():
 def resume():
     return pagelib.resume()
 
-@app.route("/archive/<postid>")
+@app.route("/post/<postid>")
 def post(postid):
     return pagelib.post()
+
+import pagelib
 
 if __name__ == '__main__':
     app.run(debug=True) #set False for production

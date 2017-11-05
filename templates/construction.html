@@ -2,22 +2,41 @@
 <html>
 <head>
 <title>[ Page Under Construction ]</title>
-{{ resources[style] }}
+<link rel=stylesheet href="{{ url_for("static", filename="style.css") }}">
 </head>
 <body>
-  {{ resources[navbar] }}
-    <p><br><img src="{{ url_for("static", filename="banner.png")"><br><br></p><br><br>
+  <div id=container>
+  <nav>
+    <ul>
+      {% for url in navbar %}
+      <li><a href="{{ url }}"><span class="green">[</span> {{ navbar[url] }} <span
+         class="green">]</span></a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+    <div class=shadow><br><img src="{{ url_for("static", filename="banner.png") }}"><br><br></div>
 <!------------------------------------------------------>
 <!--|EVERYTHING ABOVE THIS LINE MUST BE ON EVERY PAGE|-->
 
-<p><h1><font color=008000 size=10>[</font>Sorry, But This Page Is Still Being Created.
-  <font color=008000 size=10>]</font></h1>
-<blockquote>
+<div class=shadow>
+  <h1 class="green">Sorry, But This Page Is Still Being Created</h1>
+<div>
   Please try again soon.<br>
-</blockquote></p>
+
+</div>
+</div>
 
 <!--|DO NOT DELETE ANYTHING BELOW THIS LINE|------------>
 <!------------------------------------------------------>
-{{ resources[navbar] }}
+<nav style="position: absolute; bottom: 0; left: 0; right: 0; height: 4em;">
+  <ul>
+    {% for url in navbar %}
+    <li><a href="{{ url }}"><span class="green">[</span> {{ navbar[url] }} <span
+       class="green">]</span></a></li>
+    {% endfor %}
+  </ul>
+</nav>
+<div id=copyright class=shadow> Copyright Julien Kuzniarek 2017 </div>
+</div>
 </body>
 </html>
