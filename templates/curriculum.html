@@ -5,6 +5,7 @@
 <link rel=stylesheet href="{{ url_for("static", filename="style.css") }}">
 </head>
 <body>
+<div id=container>
   <nav>
     <ul>
       {% for url in navbar %}
@@ -13,7 +14,6 @@
       {% endfor %}
     </ul>
   </nav>
-  <div id=container>
   <div class=shadow><br><img src="{{ url_for("static", filename="banner.png") }}"><br><br></div>
     <div class=shadow>
 <!------------------------------------------------------>
