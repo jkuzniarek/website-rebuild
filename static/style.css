@@ -66,9 +66,9 @@ a {
 	color: #008000;
 }
 .shadow {
-	background-color: #ffffff;
-	margin-top: 0%;
-	margin-bottom: 0%;
+	background-color: rgba(ff, ff, ff, 0.5;
+	margin-top: 5%;
+	margin-bottom: 5%;
 	margin-left: 10%;
 	margin-right: 10%;
 }
