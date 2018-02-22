@@ -6,7 +6,7 @@ from flask import render_template, url_for
 navbar = {}
 navbar["/"] = "jkuzniarek.me"
 navbar["/about"] = "About"
-navbar[url_for('static', filename='resume.pdf')] = "Resume"
+navbar["/static/resume.pdf"] = "Resume"
 navbar["/curriculum"] = "Curriculum"
 navbar["/archive"] = "Archive"
 navbar["http://github.com/jkuzniarek"] = "GitHub"
