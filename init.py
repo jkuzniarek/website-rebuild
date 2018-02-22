@@ -32,11 +32,11 @@ def post(postid):
     return pagelib.post()
 
 @app.route("/create-post", methods=["GET", "POST"])
-    def createPost():
-        if request.method == "GET":
-            return pagelib.createPost()
-        if request.method == "POST":
-            return pagelib.postCreated()
+def createPost():
+    if request.method == "GET":
+        return pagelib.createPost()
+    if request.method == "POST":
+        return pagelib.postCreated()
 
 import pagelib
 
