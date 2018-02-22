@@ -31,3 +31,9 @@ def resume():
 
 def post(name):
     return render_template("construction.html", navbar=navbar, postid=name)
+
+def createPost():
+    return render_template("create-post.html", navbar=navbar)
+
+def postCreated():
+    return render_template("post-created.html", navbar=navbar)
