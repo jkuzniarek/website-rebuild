@@ -38,6 +38,10 @@ def createPost():
     if request.method == "POST":
         return pagelib.postCreated()
 
+@app.route("/post-created")
+def postCreated():
+    return pagelib.postCreated()
+
 import pagelib
 
 #if __name__ == '__main__':
