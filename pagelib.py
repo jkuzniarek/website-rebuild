@@ -30,7 +30,7 @@ def resume():
     return render_template("resume.html", navbar=navbar)
 
 def post(name):
-    return render_template("construction.html", navbar=navbar, postid=name)
+    return render_template("post.html", navbar=navbar, postid=name)
 
 def createPost():
     return render_template("create-post.html", navbar=navbar)
