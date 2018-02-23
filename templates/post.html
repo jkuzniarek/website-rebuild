@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>[ Page Under Construction ]</title>
+<link rel=stylesheet href="{{ url_for("static", filename="style.css") }}">
+</head>
+<body>
+  <div id=container>
+  <nav>
+    <ul>
+      {% for url in navbar %}
+      <li><a href="{{ url }}"><span class="green">[</span> {{ navbar[url] }} <span
+         class="green">]</span></a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+    <div class=shadow><br><img src="{{ url_for("static", filename="banner.png") }}"><br><br></div>
+    <div class=shadow>
+<!------------------------------------------------------>
+<!--|EVERYTHING ABOVE THIS LINE MUST BE ON EVERY PAGE|-->
+
+
+  <h1 class="green">Sorry, But This Page Is Still Being Created</h1>
+<br>
+<p>
+  {{ postid }}
+</p>
+
+<!--|DO NOT DELETE ANYTHING BELOW THIS LINE|------------>
+<!------------------------------------------------------>
+</div>
+<div id=copyright class=shadow> Copyright Julien Kuzniarek 2017 </div>
+</div>
+</body>
+</html>

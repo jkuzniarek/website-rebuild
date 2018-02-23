@@ -29,14 +29,15 @@ def resume():
 
 @app.route("/post/<postid>")
 def post(postid):
-    return pagelib.post()
+    return pagelib.post(postid)
 
 @app.route("/create-post", methods=["GET", "POST"])
 def createPost():
     if request.method == "GET":
         return pagelib.createPost()
     if request.method == "POST":
-        return pagelib.postCreated()
+
+        return pagelib.post(request.form["data_dateID"])
 
 @app.route("/post-created")
 def postCreated():
