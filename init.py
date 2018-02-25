@@ -1,5 +1,5 @@
 from flask import Flask, redirect, url_for, request
-
+import sys
 
 app = Flask(__name__)
 
@@ -60,10 +60,10 @@ def createPost():
         except:
             # Rollback in case there is any error
             db.rollback()
-            return redirect(url_for("/error/" + sys.exc_info()[0]))
+            return redirect("/error/" + sys.exc_info()[0]))
 
         else:
-            return redirect(url_for("/post-created"))
+            return redirect(url_for("/postCreated"))
 
         finally:
             # disconnect from server
