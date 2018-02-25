@@ -40,7 +40,7 @@ def createPost():
             import MySQLdb, credlib
 
             # Open database connection
-            db = MySQLdb.connect( db_host, db_username, db_password, db_name)
+            db = MySQLdb.connect( credlib.db_host, credlib.db_username, credlib.db_password, credlib.db_name)
 
         except:
             return redirect(url_for("/error/" + sys.exc_info()[0]))
