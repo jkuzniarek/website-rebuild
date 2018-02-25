@@ -68,7 +68,7 @@ def post(postid):
             postdict["desc"] = result[2]
             postdict["content"] = result[3]
 
-    return pagelib.post(postdict)
+        return pagelib.post(postdict)
 
     finally:
         # disconnect from server
