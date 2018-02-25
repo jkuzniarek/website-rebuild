@@ -63,10 +63,10 @@ def post(postid):
         </p>"""
 
         else:
-        postdict["postID"] = result[0]
-        postdict["title"] = result[1]
-        postdict["desc"] = result[2]
-        postdict["content"] = result[3]
+            postdict["postID"] = result[0]
+            postdict["title"] = result[1]
+            postdict["desc"] = result[2]
+            postdict["content"] = result[3]
 
     return pagelib.post(postdict)
 
