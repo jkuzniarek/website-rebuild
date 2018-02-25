@@ -25,7 +25,7 @@
 {% for post in posts %}
 <h3>
   <span class="green">[</span>
-  <a href="post/{{dateID}}">
+  <a href="post/{{post["dateID"]}}">
 {{post["dateID"] + ", " + post["title"]}}
   </a>
   <span class="green">]</span>
