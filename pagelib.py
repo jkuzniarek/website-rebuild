@@ -37,3 +37,6 @@ def createPost():
 
 def postCreated():
     return render_template("post-created.html", navbar=navbar)
+
+def error(message):
+    return render_template("error.html", navbar=navbar, error_message=message)

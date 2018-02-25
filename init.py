@@ -36,12 +36,46 @@ def createPost():
     if request.method == "GET":
         return pagelib.createPost()
     if request.method == "POST":
+        try:
+            import MySQLdb, credlib
 
-        return pagelib.post(request.form["data_dateID"])
+            # Open database connection
+            db = MySQLdb.connect( db_host, db_username, db_password, db_name)
+
+        except:
+            return redirect(url_for("/error/" + sys.exc_info()[0]))
+
+        sql = "INSERT INTO POST(dateID, title, description, content) \
+                VALUES ('%s','%s','%s','%s')" % \
+                (request.form["data_dateID"], request.form["data_title"], \
+                request.form["data_desc"], request.form["data_content"], )
+
+        try:
+            # prepare a cursor object using cursor() method
+            cursor = db.cursor()
+            # Execute the SQL command
+            cursor.execute(sql)
+            # Commit your changes in the database
+            db.commit()
+        except:
+            # Rollback in case there is any error
+            db.rollback()
+            return redirect(url_for("/error/" + sys.exc_info()[0]))
+
+        else:
+            return redirect(url_for("/post-created"))
+
+        finally:
+            # disconnect from server
+            db.close()
 
 @app.route("/post-created")
 def postCreated():
     return pagelib.postCreated()
+
+@app.route("/error/<error_message>")
+def error(error_message):
+    return pagelib.error(error_message)
 
 import pagelib
 
