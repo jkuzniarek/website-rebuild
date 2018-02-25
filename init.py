@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, request
+from flask import Flask, redirect, url_for, request, Markup
 
 app = Flask(__name__)
 
@@ -56,17 +56,17 @@ def post(postid):
         if result is None:
             postdict["dateID"] = "NA"
             postdict["title"] = "Post Not Found"
-            postdict["content"] = """<h1 class="green">Post Not Found</h1>
+            postdict["content"] = Markup("""<h1 class="green">Post Not Found</h1>
         <br>
         <p>
           The post you attempted to access does not exist or was not found.
-        </p>"""
+        </p>""")
 
         else:
             postdict["dateID"] = result[0]
             postdict["title"] = result[1]
             postdict["desc"] = result[2]
-            postdict["content"] = result[3]
+            postdict["content"] = Markup(result[3])
 
         return pagelib.post(postdict)
 
