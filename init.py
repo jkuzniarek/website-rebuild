@@ -36,7 +36,7 @@ def archive():
         postlist = []
         rowcount = 0
         for row in results:
-            postlist[rowcount] = {}
+            postlist.insert(rowcount, {})
             postlist[rowcount]["dateID"] = row[0]
             postlist[rowcount]["title"] = row[1]
             postlist[rowcount]["desc"] = row[2]
