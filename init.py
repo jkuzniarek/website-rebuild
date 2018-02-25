@@ -37,6 +37,7 @@ def post(postid):
     except:
         return redirect("/error/" + Exception)
 
+    postid = str(postid)
     sql = "SELECT * FROM POST WHERE dateID = %s" % (postid)
 
     try:
@@ -51,11 +52,23 @@ def post(postid):
 
     else:
         postdict = {}
+
+        if result is None:
+            postdict["postID"] = "NA"
+            postdict["title"] = "Post Not Found"
+            postdict["content"] = """<h1 class="green">Post Not Found</h1>
+        <br>
+        <p>
+          The post you attempted to access does not exist or was not found.
+        </p>"""
+
+        else:
         postdict["postID"] = result[0]
         postdict["title"] = result[1]
         postdict["desc"] = result[2]
         postdict["content"] = result[3]
-        return pagelib.post(postdict)
+
+    return pagelib.post(postdict)
 
     finally:
         # disconnect from server
