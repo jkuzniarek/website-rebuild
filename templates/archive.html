@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>[ Create Post ]</title>
+<title>[ Archive ]</title>
 <link rel=stylesheet href="{{ url_for("static", filename="style.css") }}">
 </head>
 <body>
@@ -19,31 +19,24 @@
 <!------------------------------------------------------>
 <!--|EVERYTHING ABOVE THIS LINE MUST BE ON EVERY PAGE|-->
 
-
-  <h1 class="green">Create your post below</h1>
+<h1 class="green">Archive</h1>
 <br>
 <p>
-  Remember, the post body is not the entire html but rather starts with the
-  h1 heading and extends to the end of the text. It will be placed over a single
-  semitransparent pane similar to the input boxs or this page.
-</p>
-<p style="text-align: left;">
-  <form method="POST">
-    <input type="text" name="data_dateID" placeholder="DateID">
-    <br>
-    <input type="text" name="data_title" placeholder="Title">
-    <br>
-    <input type="text" name="data_desc" placeholder="Description">
-    <br>
-    <textarea style="height: 50em; width: 80%;" name="data_content" placeholder="Your post's HTML body"></textarea>
-    <br>
-    <input type="submit" value="Create Post">
-  </form>
+{% for post in posts %}
+<h3>
+  <span class="green">[</span>
+  <a href="post/{{dateID}}">
+{{post["dateID"] + ", " + post["title"]}}
+  </a>
+  <span class="green">]</span>
+</h3>
+{{post["desc"]}}
+{% endfor %}
 </p>
 
 <!--|DO NOT DELETE ANYTHING BELOW THIS LINE|------------>
 <!------------------------------------------------------>
-</div>
+<br></div>
 <div id=copyright class=shadow> Copyright Julien Kuzniarek 2017 </div>
 </div>
 </body>

@@ -12,7 +12,41 @@ def about():
 
 @app.route("/archive")
 def archive():
-    return pagelib.archive()
+    try:
+        import MySQLdb, credlib
+        # Open database connection
+        db = MySQLdb.connect( credlib.db_host, credlib.db_username, credlib.db_password, credlib.db_name)
+
+    except:
+        return redirect("/error/" + Exception)
+
+    sql = "SELECT * FROM POST ORDER BY dateID DESC"
+
+    try:
+        # prepare a cursor object using cursor() method
+        cursor = db.cursor()
+        # Execute the SQL command
+        cursor.execute(sql)
+        # map to result dict
+        results = cursor.fetchall()
+    except:
+        return redirect("/error/" + Exception)
+
+    else:
+        postlist = []
+
+        for row in results:
+            postlist[row] = {}
+            postlist[row]["dateID"] = row[0]
+            postlist[row]["title"] = result[1]
+            postlist[row]["desc"] = result[2]
+            postlist[row]["content"] = Markup(result[3])
+
+        return pagelib.archive(postlist)
+
+    finally:
+        # disconnect from server
+        db.close()
 
 @app.route("/construction")
 def construction():
@@ -38,7 +72,7 @@ def post(postid):
         return redirect("/error/" + Exception)
 
     postid = str(postid)
-    sql = "SELECT * FROM POST WHERE dateID = %s" % (postid)
+    sql = 'SELECT * FROM POST WHERE dateID = "%s"' % (postid)
 
     try:
         # prepare a cursor object using cursor() method
@@ -73,7 +107,6 @@ def post(postid):
     finally:
         # disconnect from server
         db.close()
-    return pagelib.post(post_data)
 
 @app.route("/create-post", methods=["GET", "POST"])
 def createPost():

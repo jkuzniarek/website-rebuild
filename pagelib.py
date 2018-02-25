@@ -17,8 +17,8 @@ def home():
 def about():
     return render_template("about.html", navbar=navbar)
 
-def archive():
-    return render_template("construction.html", navbar=navbar)
+def archive(post_data):
+    return render_template("archive.html", navbar=navbar, posts=post_data)
 
 def construction():
     return render_template("construction.html", navbar=navbar)
