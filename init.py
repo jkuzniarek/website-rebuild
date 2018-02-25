@@ -34,13 +34,14 @@ def archive():
 
     else:
         postlist = []
-
+        rowcount = 0
         for row in results:
-            postlist[row] = {}
-            postlist[row]["dateID"] = row[0]
-            postlist[row]["title"] = result[1]
-            postlist[row]["desc"] = result[2]
-            postlist[row]["content"] = Markup(result[3])
+            postlist[rowcount] = {}
+            postlist[rowcount]["dateID"] = row[0]
+            postlist[rowcount]["title"] = row[1]
+            postlist[rowcount]["desc"] = row[2]
+            postlist[rowcount]["content"] = Markup(row[3])
+            rowcount++
 
         return pagelib.archive(postlist)
 
