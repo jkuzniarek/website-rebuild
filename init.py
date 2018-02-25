@@ -41,7 +41,7 @@ def archive():
             postlist[rowcount]["title"] = row[1]
             postlist[rowcount]["desc"] = row[2]
             postlist[rowcount]["content"] = Markup(row[3])
-            rowcount++
+            rowcount += 1
 
         return pagelib.archive(postlist)
 
