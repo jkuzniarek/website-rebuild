@@ -28,7 +28,39 @@ def resume():
 
 @app.route("/post/<postid>")
 def post(postid):
-    return pagelib.post(postid)
+    try:
+        import MySQLdb, credlib
+
+        # Open database connection
+        db = MySQLdb.connect( credlib.db_host, credlib.db_username, credlib.db_password, credlib.db_name)
+
+    except:
+        return redirect("/error/" + Exception)
+
+    sql = "SELECT * FROM POST WHERE dateID = %s" % (postid)
+
+    try:
+        # prepare a cursor object using cursor() method
+        cursor = db.cursor()
+        # Execute the SQL command
+        cursor.execute(sql)
+        # map to result dict
+        result = cursor.fetchone()
+    except:
+        return redirect("/error/" + Exception)
+
+    else:
+        postdict = {}
+        postdict["postID"] = result[0]
+        postdict["title"] = result[1]
+        postdict["desc"] = result[2]
+        postdict["content"] = result[3]
+        return pagelib.post(postdict)
+
+    finally:
+        # disconnect from server
+        db.close()
+    return pagelib.post(post_data)
 
 @app.route("/create-post", methods=["GET", "POST"])
 def createPost():

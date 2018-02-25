@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>[ Page Under Construction ]</title>
+<title>[ {{ post["dateID"] + " " + post["title"] }} ]</title>
 <link rel=stylesheet href="{{ url_for("static", filename="style.css") }}">
 </head>
 <body>
@@ -19,12 +19,7 @@
 <!------------------------------------------------------>
 <!--|EVERYTHING ABOVE THIS LINE MUST BE ON EVERY PAGE|-->
 
-
-  <h1 class="green">Sorry, But This Page Is Still Being Created</h1>
-<br>
-<p>
-  {{ postid }}
-</p>
+{{ post["content"] }}
 
 <!--|DO NOT DELETE ANYTHING BELOW THIS LINE|------------>
 <!------------------------------------------------------>

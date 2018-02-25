@@ -29,8 +29,8 @@ def curriculum():
 def resume():
     return render_template("resume.html", navbar=navbar)
 
-def post(name):
-    return render_template("post.html", navbar=navbar, postid=name)
+def post(post_data):
+    return render_template("post.html", navbar=navbar, post=post_data)
 
 def createPost():
     return render_template("create-post.html", navbar=navbar)
