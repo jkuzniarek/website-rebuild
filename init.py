@@ -1,5 +1,4 @@
 from flask import Flask, redirect, url_for, request
-import sys
 
 app = Flask(__name__)
 
@@ -43,7 +42,7 @@ def createPost():
             db = MySQLdb.connect( credlib.db_host, credlib.db_username, credlib.db_password, credlib.db_name)
 
         except:
-            return redirect(url_for("/error/" + sys.exc_info()[0]))
+            return redirect(url_for("/error/" + Exception))
 
         sql = "INSERT INTO POST(dateID, title, description, content) \
                 VALUES ('%s','%s','%s','%s')" % \
@@ -60,7 +59,7 @@ def createPost():
         except:
             # Rollback in case there is any error
             db.rollback()
-            return redirect("/error/" + sys.exc_info()[0]))
+            return redirect("/error/" + Exception)
 
         else:
             return redirect(url_for("/postCreated"))
