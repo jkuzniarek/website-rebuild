@@ -42,7 +42,7 @@ def createPost():
             db = MySQLdb.connect( credlib.db_host, credlib.db_username, credlib.db_password, credlib.db_name)
 
         except:
-            return redirect(url_for("/error/" + Exception))
+            return redirect("/error/" + Exception))
 
         sql = "INSERT INTO POST(dateID, title, description, content) \
                 VALUES ('%s','%s','%s','%s')" % \
@@ -62,7 +62,7 @@ def createPost():
             return redirect("/error/" + Exception)
 
         else:
-            return redirect(url_for("/postCreated"))
+            return redirect(url_for("postCreated"))
 
         finally:
             # disconnect from server
