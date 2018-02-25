@@ -54,7 +54,7 @@ def post(postid):
         postdict = {}
 
         if result is None:
-            postdict["postID"] = "NA"
+            postdict["dateID"] = "NA"
             postdict["title"] = "Post Not Found"
             postdict["content"] = """<h1 class="green">Post Not Found</h1>
         <br>
@@ -63,7 +63,7 @@ def post(postid):
         </p>"""
 
         else:
-            postdict["postID"] = result[0]
+            postdict["dateID"] = result[0]
             postdict["title"] = result[1]
             postdict["desc"] = result[2]
             postdict["content"] = result[3]
