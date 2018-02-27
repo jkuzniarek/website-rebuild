@@ -18,7 +18,7 @@ body {
 	padding-top: 1em;
 }
 #banner {
-	margin-top: 5em;
+	margin-top: 6em;
 }
 nav {
 	background-color: #000000;
@@ -76,6 +76,8 @@ a {
 	margin-left: 20%;
 	margin-right: 20%;
 	border-radius: 1em;
+	padding-bottom: 1em;
+	padding-top: 1em;
 }
 h1 {
 	border-bottom: thin #008000;
