@@ -14,8 +14,11 @@ body {
 	position: relative;
 }
 #copyright {
-	padding-bottom: 3em;
-	padding-top: 2em;
+	padding-bottom: 1em;
+	padding-top: 1em;
+}
+#banner {
+	margin-top: 5em;
 }
 nav {
 	background-color: #000000;
