@@ -11,7 +11,7 @@ def index():
         db = MySQLdb.connect( credlib.db_host, credlib.db_username, credlib.db_password, credlib.db_name)
 
     except:
-        return redirect("/error/" + Exception)
+        return redirect("/error/" + str(Exception))
 
     sql = "SELECT * FROM POST ORDER BY dateID DESC"
     postdict = {}
@@ -53,7 +53,7 @@ def archive():
         db = MySQLdb.connect( credlib.db_host, credlib.db_username, credlib.db_password, credlib.db_name)
 
     except:
-        return redirect("/error/" + Exception)
+        return redirect("/error/" + str(Exception))
 
     sql = "SELECT * FROM POST ORDER BY dateID DESC"
 
@@ -65,7 +65,7 @@ def archive():
         # map to result dict
         results = cursor.fetchall()
     except:
-        return redirect("/error/" + Exception)
+        return redirect("/error/" + str(Exception))
 
     else:
         postlist = []
@@ -105,7 +105,7 @@ def post(postid):
         db = MySQLdb.connect( credlib.db_host, credlib.db_username, credlib.db_password, credlib.db_name)
 
     except:
-        return redirect("/error/" + Exception)
+        return redirect("/error/" + str(Exception))
 
     postid = str(postid)
     sql = 'SELECT * FROM POST WHERE dateID = "%s"' % (postid)
@@ -118,7 +118,7 @@ def post(postid):
         # map to result dict
         result = cursor.fetchone()
     except:
-        return redirect("/error/" + Exception)
+        return redirect("/error/" + str(Exception))
 
     else:
         postdict = {}
@@ -156,12 +156,12 @@ def createPost():
             db = MySQLdb.connect( credlib.db_host, credlib.db_username, credlib.db_password, credlib.db_name)
 
         except:
-            return redirect("/error/" + Exception)
+            return redirect("/error/" + str(Exception))
 
-        sql = "INSERT INTO POST(dateID, title, description, content) \
-                VALUES ('%s','%s','%s','%s')" % \
-                (request.form["data_dateID"], request.form["data_title"], \
-                request.form["data_desc"], request.form["data_content"], )
+        sql = """INSERT INTO POST(dateID, title, description, content) \
+                VALUES ('%s','%s','%s','%s')""" % \
+                (request.form["data_dateID"].replace("'", "''"), request.form["data_title"].replace("'", "''"), \
+                request.form["data_desc"].replace("'", "''"), request.form["data_content"].replace("'", "''"))
 
         try:
             # prepare a cursor object using cursor() method
@@ -173,7 +173,7 @@ def createPost():
         except:
             # Rollback in case there is any error
             db.rollback()
-            return redirect("/error/" + Exception)
+            return redirect("/error/" + str(Exception))
 
         else:
             return redirect(url_for("postCreated"))
