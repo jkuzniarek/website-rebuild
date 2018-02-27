@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>About</title>
+<title>jkuzniarek.me</title>
 <link rel=stylesheet href="{{ url_for("static", filename="style.css") }}">
 </head>
 <body>
@@ -15,11 +15,23 @@
     </ul>
   </nav>
   <br>
-    <div class=shadow><br><img src="{{ url_for("static", filename="banner.png") }}"><br><br></div>
+    <div class=shadow><br><img src="{{ url_for("static", filename="banner.png") }}"><br><hr></div>
     <div class=shadow><br>
 <!------------------------------------------------------>
 <!--|EVERYTHING ABOVE THIS LINE MUST BE ON EVERY PAGE|-->
 
+  <h3>
+    LATEST:
+    <span class="green"> [</span>
+    <a href="post/{{post["dateID"]}}">
+      {{post["dateID"] + ", " + post["title"]}}
+    </a>
+    <span class="green">]</span>
+  </h3>
+  {{post["desc"]}}
+  </div>
+
+  <div class=shadow><br>
   <h1 class="green">About</h1>
   <p>
     In case you've missed the sitewide self promotion I'm calling a
@@ -58,7 +70,10 @@
 <!--|DO NOT DELETE ANYTHING BELOW THIS LINE|------------>
 <!------------------------------------------------------>
 </div>
-<div id=copyright class=shadow> Copyright Julien Kuzniarek 2017 </div>
+<div id=copyright class=shadow>
+  <hr>
+  Copyright Julien Kuzniarek 2017
+</div>
 </div>
 </body>
 </html>

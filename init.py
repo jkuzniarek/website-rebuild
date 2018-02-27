@@ -4,11 +4,46 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return pagelib.home()
+    try:
+        import MySQLdb, credlib
 
-@app.route("/about")
-def about():
-    return pagelib.about()
+        # Open database connection
+        db = MySQLdb.connect( credlib.db_host, credlib.db_username, credlib.db_password, credlib.db_name)
+
+    except:
+        return redirect("/error/" + Exception)
+
+    sql = "SELECT * FROM POST ORDER BY dateID DESC"
+    postdict = {}
+
+    try:
+        # prepare a cursor object using cursor() method
+        cursor = db.cursor()
+        # Execute the SQL command
+        cursor.execute(sql)
+        # map to result dict
+        result = cursor.fetchone()
+    except:
+        postdict["dateID"] = "NA"
+        postdict["title"] = "Post Not Found"
+        postdict["desc"] = "Database connection error"
+
+    else:
+        if result is None:
+            postdict["dateID"] = "NA"
+            postdict["title"] = "No Posts Found"
+            postdict["desc"] = "No posts available in database"
+
+        else:
+            postdict["dateID"] = result[0]
+            postdict["title"] = result[1]
+            postdict["desc"] = result[2]
+
+        return pagelib.home(postdict)
+
+    finally:
+        # disconnect from server
+        db.close()
 
 @app.route("/archive")
 def archive():

@@ -5,17 +5,13 @@ from flask import render_template, url_for
 
 navbar = {}
 navbar["/"] = "jkuzniarek.me"
-navbar["/about"] = "About"
 navbar["/static/resume.pdf"] = "Resume"
 navbar["/curriculum"] = "Curriculum"
 navbar["/archive"] = "Archive"
 navbar["http://github.com/jkuzniarek"] = "GitHub"
 
-def home():
-    return render_template("construction.html", navbar=navbar)
-
-def about():
-    return render_template("about.html", navbar=navbar)
+def home(post_data):
+    return render_template("home.html", navbar=navbar, post=post_data)
 
 def archive(post_data):
     return render_template("archive.html", navbar=navbar, posts=post_data)
