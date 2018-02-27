@@ -84,16 +84,9 @@ h1 {
 	border-bottom-style: solid;
 }
 /* Unused leftovers from previous stylesheet */
-figure {
-	outline-color: #008000;
-	outline-style: dashed;
-	outline-width: thin;
-	outline-offset: 1em;
+code {
+	text-align: left;
 }
-.right {
-	float: right;
-	margin-left: 30px;
-}
-.center {
-	float:none;
+samp {
+	text-align: left;
 }
