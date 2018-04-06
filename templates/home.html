@@ -3,14 +3,16 @@
 <head>
 <title>jkuzniarek.me</title>
 <link rel=stylesheet href="{{ url_for("static", filename="style.css") }}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
   <div id=container>
   <nav>
     <ul>
       {% for url in navbar %}
-      <li><a href="{{ url }}"><span class="green">[</span> {{ navbar[url] }} <span
-         class="green">]</span></a></li>
+      <li><a href="{{ url }}" id="{{ navbar[url][1] }}"><span id="{{ navbar[url][1] }}-text"><span class="green">[</span> {{ navbar[url][0] }} <span
+         class="green">]</span></span></a></li>
       {% endfor %}
     </ul>
   </nav>
@@ -35,28 +37,21 @@
   <h1 class="green">About</h1>
   <p>
     In case you've missed the sitewide self promotion I'm calling a
-    banner my name is Julien Kuzniarek. I'm currently an Integration Engineer
-    at <a href="http://www.mynetsvs.com">Net Synergy Virtual Solutions</a> in
-    Tampa, FL where I develop <b>web scraping</b> robots
-    and data <b>Extraction, Transformation, and Loading</b> solutions.
-    I typically work with a variety of tools such as RESTful interfaces,
-    Kofax Kapow, Apache NiFi, and SQL databases.
-  </p>
-  <p>
-  I am a graduate of the University of South Florida (go Bulls!) where I earned
-  a <b>Bachelor of Science</b> in Information Studies, and kindled my
-  interest in programming and web development.
+    banner my name is Julien Kuzniarek and I'm a Web Developer in
+    Tampa, FL. I graduated from the University of South Florida with
+    a <b>Bachelor of Science</b> in Information Science, which kickstarted
+    my interest in programming and web development.
 </p>
 <p>
   I built this site to serve as a personal digital billboard introducing myself and
   my work, as well as a blog of sorts. This site is dynamically served off
   <a href="http://www.pythonanywhere.com">pythonanywhere.com</a>
-  with a significant portion of the content stored in and retrieved from a
+  with a significant portion of the content stored in and retrieved from a SQL
   database. The primary desired externalities of converting my previous static
   website to this one were to simplify the publishing process for myself, to provide myself
   with knowledge and experience in web development using more than just HTML/CSS,
-  to demonstrate my familiarity with <b>SQL</b> and <b>Python</b>
-  (my preferred language), and to get hands on with the Flask framework.
+  to get hands on the Flask framework, and to demonstrate my familiarity with
+  <b>jQuery</b>, <b>SQL</b>, and <b>Python</b> (my preferred language).
 </p>
 <p>
   My personal interests include, organizational structures, cellular automata, artificial sentience,
@@ -67,8 +62,9 @@
   cascading effects that can occur from small changes to a system.
 </p>
   <h3 class=green>Contact Me:</h3>
-  My contact information is available on my
-  <a href="{{ url_for('static', filename='resume.pdf') }}">Resume</a>
+  My contact information is available on my Resume or LinkedIn:<br>
+  <a href="{{ url_for('static', filename='resume.pdf') }}"><i id="contact-resume" alt="Resume"></i></a>
+  <a href="http://www.linkedin.com/in/jkuzniarek"><i id="contact-linkedin" alt="http://www.linkedin.com/in/jkuzniarek"></i></a>
 
 <!--|DO NOT DELETE ANYTHING BELOW THIS LINE|------------>
 <!------------------------------------------------------>
@@ -80,4 +76,34 @@
 </div>
 </div>
 </body>
+<script>
+$("#nav-resume").hover(function(){
+  $("#nav-resume-text").attr("hidden", "hidden");
+  $("#nav-resume").attr("class", "fa fa-file-pdf-o");
+}, function(){
+  $("#nav-resume").removeAttr("class");
+  $("#nav-resume-text").removeAttr("hidden");
+});
+$("#nav-archive").hover(function(){
+  $("#nav-archive-text").attr("hidden", "hidden");
+  $("#nav-archive").attr("class", "fa fa-database");
+}, function(){
+  $("#nav-archive").removeAttr("class");
+  $("#nav-archive-text").removeAttr("hidden");
+});
+$("#nav-curriculum").hover(function(){
+  $("#nav-curriculum-text").attr("hidden", "hidden");
+  $("#nav-curriculum").attr("class", "fa fa-book");
+}, function(){
+  $("#nav-curriculum").removeAttr("class");
+  $("#nav-curriculum-text").removeAttr("hidden");
+});
+$("#nav-github").hover(function(){
+  $("#nav-github-text").attr("hidden", "hidden");
+  $("#nav-github").attr("class", "fa fa-github");
+}, function(){
+  $("#nav-github").removeAttr("class");
+  $("#nav-github-text").removeAttr("hidden");
+});
+</script>
 </html>

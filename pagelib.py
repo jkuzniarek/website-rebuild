@@ -4,11 +4,11 @@ Importing this will import all page dependencies.'''
 from flask import render_template, url_for
 
 navbar = {}
-navbar["/"] = "jkuzniarek.me"
-navbar["/static/resume.pdf"] = "Resume"
-navbar["/curriculum"] = "Curriculum"
-navbar["/archive"] = "Archive"
-navbar["http://github.com/jkuzniarek"] = "GitHub"
+navbar["/"] = ["jkuzniarek.me", "nav-home"]
+navbar["/static/resume.pdf"] = ["Resume", "nav-resume"]
+navbar["/curriculum"] = ["Curriculum", "nav-curriculum"]
+navbar["/archive"] = ["Archive", "nav-archive"]
+navbar["http://github.com/jkuzniarek"] = ["GitHub", "nav-github"]
 
 def home(post_data):
     return render_template("home.html", navbar=navbar, post=post_data)

@@ -3,14 +3,16 @@
 <head>
 <title>[ Create Post ]</title>
 <link rel=stylesheet href="{{ url_for("static", filename="style.css") }}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
   <div id=container>
   <nav>
     <ul>
       {% for url in navbar %}
-      <li><a href="{{ url }}"><span class="green">[</span> {{ navbar[url] }} <span
-         class="green">]</span></a></li>
+      <li><a href="{{ url }}" id="{{ navbar[url][1] }}"><span id="{{ navbar[url][1] }}-text"><span class="green">[</span> {{ navbar[url][0] }} <span
+         class="green">]</span></span></a></li>
       {% endfor %}
     </ul>
   </nav>
@@ -52,4 +54,34 @@
 </div>
 </div>
 </body>
+<script>
+$("#nav-resume").hover(function(){
+  $("#nav-resume-text").attr("hidden", "hidden");
+  $("#nav-resume").attr("class", "fa fa-file-pdf-o");
+}, function(){
+  $("#nav-resume").removeAttr("class");
+  $("#nav-resume-text").removeAttr("hidden");
+});
+$("#nav-archive").hover(function(){
+  $("#nav-archive-text").attr("hidden", "hidden");
+  $("#nav-archive").attr("class", "fa fa-database");
+}, function(){
+  $("#nav-archive").removeAttr("class");
+  $("#nav-archive-text").removeAttr("hidden");
+});
+$("#nav-curriculum").hover(function(){
+  $("#nav-curriculum-text").attr("hidden", "hidden");
+  $("#nav-curriculum").attr("class", "fa fa-book");
+}, function(){
+  $("#nav-curriculum").removeAttr("class");
+  $("#nav-curriculum-text").removeAttr("hidden");
+});
+$("#nav-github").hover(function(){
+  $("#nav-github-text").attr("hidden", "hidden");
+  $("#nav-github").attr("class", "fa fa-github");
+}, function(){
+  $("#nav-github").removeAttr("class");
+  $("#nav-github-text").removeAttr("hidden");
+});
+</script>
 </html>

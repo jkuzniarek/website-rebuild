@@ -46,21 +46,10 @@ nav ul li {
 nav > ul > li > a {
 	display: block;
 	line-height: 2em;
-	padding: 0.5em 1em;
+	padding: 0.5em 0em;
 	text-decoration: none;
-	color: #ffffff
-}
-nav > ul > li > a:hover{
-	color: #008000;
-	background-color: #000000;
-	display: block;
-	line-height: 2em;
-	padding: 0.5em 2em;
-	text-decoration: none;
-}
-a:hover {
-	color: inherit;
-	text-decoration: underline;
+	color: #ffffff;
+	width: 6.5em;
 }
 a {
 	color: #008000;
