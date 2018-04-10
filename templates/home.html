@@ -24,7 +24,7 @@
 
   <h3 style="margin-top: 0%; margin-bottom: 0%;">LATEST:
     <span class="green"> [</span>
-    <a href="post/{{post["dateID"]}}">
+    <a id="latest-link" href="post/{{post["dateID"]}}">
       {{post["dateID"] + ", " + post["title"]}}
     </a>
     <span class="green">]</span>
@@ -104,6 +104,27 @@ $("#nav-github").hover(function(){
 }, function(){
   $("#nav-github").removeAttr("class");
   $("#nav-github-text").removeAttr("hidden");
+});
+</script>
+<script>
+$("#latest-link").hover(function(){
+  $("#latest-link").attr("style", "color: black;");
+}, function(){
+  $("#latest-link").removeAttr("style");
+});
+$("#contact-resume").attr("class", "fa fa-file-pdf-o");
+$("#contact-resume").attr("style", "font-size: 3em;");
+$("#contact-linkedin").attr("class", "fa fa-linkedin-square");
+$("#contact-linkedin").attr("style", "font-size: 3em;");
+$("#contact-resume").hover(function(){
+  $("#contact-resume").attr("style", "color: black; font-size: 3em;");
+}, function(){
+  $("#contact-resume").attr("style", "font-size: 3em;");
+});
+$("#contact-linkedin").hover(function(){
+  $("#contact-linkedin").attr("style", "color: black; font-size: 3em;");
+}, function(){
+  $("#contact-linkedin").attr("style", "font-size: 3em;");
 });
 </script>
 </html>
