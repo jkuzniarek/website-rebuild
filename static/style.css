@@ -55,6 +55,12 @@ a {
 	color: #008000;
 	text-decoration: none;
 }
+p > a:hover {
+	color: black;
+}
+h3 > a:hover {
+	color: black;
+}
 .green {
 	color: #008000;
 }
@@ -67,6 +73,13 @@ a {
 	border-radius: 1em;
 	padding-bottom: 1em;
 	padding-top: 1em;
+}
+div > ul {
+	text-align: left;
+	list-style-type: none;
+}
+div > ul > li {
+	text-align: left;
 }
 h1 {
 	border-bottom: thin #008000;

@@ -24,19 +24,19 @@
 
 <h1 class="green">Archive</h1>
 <br>
-<p>
-{% for post in posts %}
-<h3>
-  <span class="green">[</span>
-  <a href="post/{{post["dateID"]}}">
-{{post["dateID"] + ", " + post["title"]}}
-  </a>
-  <span class="green">]</span>
-</h3>
-{{post["desc"]}}
-{% endfor %}
-</p>
-
+  <ul>
+      {% for post in posts %}
+      <li><h3>
+        <span class="green">[</span>
+        <a href="post/{{post["dateID"]}}">
+          {{post["dateID"] + ", " + post["title"]}}
+        </a>
+        <span class="green">]</span>
+        </h3>
+        {{post["desc"]}}
+      </li>
+      {% endfor %}
+    </ul>
 <!--|DO NOT DELETE ANYTHING BELOW THIS LINE|------------>
 <!------------------------------------------------------>
 <br></div>

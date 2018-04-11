@@ -9,41 +9,49 @@ def index():
 
         # Open database connection
         db = MySQLdb.connect( credlib.db_host, credlib.db_username, credlib.db_password, credlib.db_name)
-
+        databaseError = ""
     except:
-        return redirect("/error/" + str(Exception))
+        databaseError = str(Exception)
 
     sql = "SELECT * FROM POST ORDER BY dateID DESC"
     postdict = {}
 
-    try:
-        # prepare a cursor object using cursor() method
-        cursor = db.cursor()
-        # Execute the SQL command
-        cursor.execute(sql)
-        # map to result dict
-        result = cursor.fetchone()
-    except:
-        postdict["dateID"] = "NA"
-        postdict["title"] = "Post Not Found"
-        postdict["desc"] = "Database connection error"
+    if databaseError == "":
 
-    else:
-        if result is None:
+        try:
+            # prepare a cursor object using cursor() method
+            cursor = db.cursor()
+            # Execute the SQL command
+            cursor.execute(sql)
+            # map to result dict
+            result = cursor.fetchone()
+        except:
             postdict["dateID"] = "NA"
-            postdict["title"] = "No Posts Found"
-            postdict["desc"] = "No posts available in database"
+            postdict["title"] = "Post Not Found"
+            postdict["desc"] = "Error. Not found in database"
 
         else:
-            postdict["dateID"] = result[0]
-            postdict["title"] = result[1]
-            postdict["desc"] = result[2]
+            if result is None:
+                postdict["dateID"] = "NA"
+                postdict["title"] = "No Posts Found"
+                postdict["desc"] = "No posts available in database"
 
+            else:
+                postdict["dateID"] = result[0]
+                postdict["title"] = result[1]
+                postdict["desc"] = result[2]
+
+            return pagelib.home(postdict)
+
+        finally:
+            # disconnect from server
+            db.close()
+
+    if databaseError != "":
+        postdict["dateID"] = "NA"
+        postdict["title"] = "Connection Error"
+        postdict["desc"] = "Database connection error: " + databaseError
         return pagelib.home(postdict)
-
-    finally:
-        # disconnect from server
-        db.close()
 
 @app.route("/archive")
 def archive():
@@ -51,38 +59,47 @@ def archive():
         import MySQLdb, credlib
         # Open database connection
         db = MySQLdb.connect( credlib.db_host, credlib.db_username, credlib.db_password, credlib.db_name)
+        databaseError = ""
 
     except:
-        return redirect("/error/" + str(Exception))
+        databaseError = str(Exception)
 
     sql = "SELECT * FROM POST ORDER BY dateID DESC"
 
-    try:
-        # prepare a cursor object using cursor() method
-        cursor = db.cursor()
-        # Execute the SQL command
-        cursor.execute(sql)
-        # map to result dict
-        results = cursor.fetchall()
-    except:
-        return redirect("/error/" + str(Exception))
+    if databaseError == "":
+        try:
+            # prepare a cursor object using cursor() method
+            cursor = db.cursor()
+            # Execute the SQL command
+            cursor.execute(sql)
+            # map to result dict
+            results = cursor.fetchall()
+        except:
+            return redirect("/error/" + str(Exception))
 
-    else:
+        else:
+            postlist = []
+            rowcount = 0
+            for row in results:
+                postlist.insert(rowcount, {})
+                postlist[rowcount]["dateID"] = row[0]
+                postlist[rowcount]["title"] = row[1]
+                postlist[rowcount]["desc"] = row[2]
+                rowcount += 1
+
+            return pagelib.archive(postlist)
+
+        finally:
+            # disconnect from server
+            db.close()
+
+    if databaseError != "":
         postlist = []
-        rowcount = 0
-        for row in results:
-            postlist.insert(rowcount, {})
-            postlist[rowcount]["dateID"] = row[0]
-            postlist[rowcount]["title"] = row[1]
-            postlist[rowcount]["desc"] = row[2]
-            postlist[rowcount]["content"] = Markup(row[3])
-            rowcount += 1
-
+        postlist.insert(0, {})
+        postlist[0]["dateID"] = "NA"
+        postlist[0]["title"] = "Connection Error"
+        postlist[0]["desc"] = "Database connection error: " + databaseError
         return pagelib.archive(postlist)
-
-    finally:
-        # disconnect from server
-        db.close()
 
 @app.route("/construction")
 def construction():
@@ -103,46 +120,60 @@ def post(postid):
 
         # Open database connection
         db = MySQLdb.connect( credlib.db_host, credlib.db_username, credlib.db_password, credlib.db_name)
+        databaseError = ""
 
     except:
-        return redirect("/error/" + str(Exception))
+        databaseError = str(Exception)
 
     postid = str(postid)
     sql = 'SELECT * FROM POST WHERE dateID = "%s"' % (postid)
+    if databaseError == "":
 
-    try:
-        # prepare a cursor object using cursor() method
-        cursor = db.cursor()
-        # Execute the SQL command
-        cursor.execute(sql)
-        # map to result dict
-        result = cursor.fetchone()
-    except:
-        return redirect("/error/" + str(Exception))
+        try:
+            # prepare a cursor object using cursor() method
+            cursor = db.cursor()
+            # Execute the SQL command
+            cursor.execute(sql)
+            # map to result dict
+            result = cursor.fetchone()
+        except:
+            return redirect("/error/" + str(Exception))
 
-    else:
-        postdict = {}
+        else:
+            postdict = {}
 
-        if result is None:
-            postdict["dateID"] = "NA"
-            postdict["title"] = "Post Not Found"
-            postdict["content"] = Markup("""<h1 class="green">Post Not Found</h1>
+            if result is None:
+                postdict["dateID"] = "NA"
+                postdict["title"] = "Post Not Found"
+                postdict["content"] = Markup("""<h1 class="green">Post Not Found</h1>
         <br>
         <p>
           The post you attempted to access does not exist or was not found.
         </p>""")
 
-        else:
-            postdict["dateID"] = result[0]
-            postdict["title"] = result[1]
-            postdict["desc"] = result[2]
-            postdict["content"] = Markup(result[3])
+            else:
+                postdict["dateID"] = result[0]
+                postdict["title"] = result[1]
+                postdict["desc"] = result[2]
+                postdict["content"] = Markup(result[3])
 
+            return pagelib.post(postdict)
+
+        finally:
+            # disconnect from server
+            db.close()
+
+    if databaseError != "":
+        postdict = {}
+        postdict["dateID"] = "NA"
+        postdict["title"] = "Connection Error"
+        postdict["desc"] = "Database connection error: " + databaseError
+        postdict["content"] = Markup("""<h1 class="green">Connection Error</h1>
+<br>
+<p>
+  Database connection error """ + databaseError + """
+</p>""")
         return pagelib.post(postdict)
-
-    finally:
-        # disconnect from server
-        db.close()
 
 @app.route("/create-post", methods=["GET", "POST"])
 def createPost():
