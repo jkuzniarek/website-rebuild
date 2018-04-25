@@ -221,6 +221,10 @@ def postCreated():
 def error(error_message):
     return pagelib.error(error_message)
 
+@app.route("/favicon.ico")
+def iconRedirect():
+    return redirect("/static/favicon.ico")
+
 import pagelib
 
 # comment out below before push

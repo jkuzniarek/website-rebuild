@@ -1,7 +1,7 @@
 '''pagelib
 This is the library that consolidates each page assembly file.
 Importing this will import all page dependencies.'''
-from flask import render_template, url_for
+from flask import render_template, url_for, Markup
 
 navbar = {}
 navbar["/"] = ["jkuzniarek.me", "nav-home"]
