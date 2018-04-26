@@ -126,7 +126,7 @@ def post(postid):
         databaseError = str(Exception)
 
     postid = str(postid)
-    sql = 'CALL get_post(%s);' % (postid)
+    sql = 'CALL get_post('%s');' % (postid)
     if databaseError == "":
 
         try:
