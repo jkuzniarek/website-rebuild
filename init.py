@@ -13,7 +13,7 @@ def index():
     except:
         databaseError = str(Exception)
 
-    sql = "SELECT * FROM POST ORDER BY dateID DESC"
+    sql = "CALL get_all_posts();"
     postdict = {}
 
     if databaseError == "":
@@ -64,7 +64,7 @@ def archive():
     except:
         databaseError = str(Exception)
 
-    sql = "SELECT * FROM POST ORDER BY dateID DESC"
+    sql = "CALL get_all_posts();"
 
     if databaseError == "":
         try:
@@ -126,7 +126,7 @@ def post(postid):
         databaseError = str(Exception)
 
     postid = str(postid)
-    sql = 'SELECT * FROM POST WHERE dateID = "%s"' % (postid)
+    sql = 'CALL get_post(%s);' % (postid)
     if databaseError == "":
 
         try:
@@ -189,8 +189,7 @@ def createPost():
         except:
             return redirect("/error/" + str(Exception))
 
-        sql = """INSERT INTO POST(dateID, title, description, content) \
-                VALUES ('%s','%s','%s','%s')""" % \
+        sql = """CALL add_post('%s','%s','%s','%s');""" % \
                 (request.form["data_dateID"].replace("'", "''"), request.form["data_title"].replace("'", "''"), \
                 request.form["data_desc"].replace("'", "''"), request.form["data_content"].replace("'", "''"))
 
